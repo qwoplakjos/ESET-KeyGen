@@ -45,9 +45,9 @@ jobs:
           cd ESET-KeyGen
           sudo apt update
           sudo apt install -y python3-pip
-          sudo pip install python3-selenium
-          sudo pip install python3-requests
-          sudo pip install python3-colorama
+          pip install python3-selenium --break-system-packages
+          pip install python3-requests --break-system-packages
+          pip install python3-colorama --break-system-packages
 
           if [[ ${ACCOUNT} -ne 0 && ${KEY} -ne 0 ]]; then
             seq 1 ${ACCOUNT} | xargs -I {} -P ${ACCOUNT} python3 main.py --chrome --account --email-api ${MAIL} --skip-webdriver-menu --skip-update-check --no-logo --disable-progress-bar &
